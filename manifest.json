@@ -1,0 +1,10 @@
+{
+    "theme_color": "#f69435",
+    "background_color": "#f69435",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/https://rickroll2222.github.io/",
+    "name": "rickroll2222 websitw",
+    "short_name": "rickroll2222",
+    "icons": []
+}
