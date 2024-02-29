@@ -58,10 +58,33 @@
     </div>
 
     <center>
+        <button onclick="openAboutUs()">About US</button>
+        <button onclick="openEmail()">Email Us At (rickroii2222@hotmail.com)</button>
+        <button onclick="startEditing()">Start Editing</button>
+        <button onclick="stopEditing()">Stop Editing</button>
         <button onclick="openCloakedRR22()">Cloaked RR22</button>
+        <button onclick="myFunction()">Guess What?</button>
     </center>
 
     <script>
+        function openAboutUs() {
+            window.open("https://docs.google.com/document/d/16n41zp_5QMLPqw7O4Awfagsn2CUg14so4rKzf62Tw8o/edit", "_blank");
+        }
+
+        function openEmail() {
+            window.open("https://mail.google.com/mail/u/0/?fs=1&to=rickroii2222@hotmail.com&tf=cm", "_blank");
+        }
+
+        function startEditing() {
+            document.body.contentEditable = true;
+            document.designMode = 'on';
+        }
+
+        function stopEditing() {
+            document.body.contentEditable = false;
+            document.designMode = 'off';
+        }
+
         function openCloakedRR22() {
             var win = window.open();
             var url = "https://rickroll2222.github.io";
@@ -71,6 +94,10 @@
             iframe.style.border = "none";
             iframe.src = url;
             win.document.body.appendChild(iframe);
+        }
+
+        function myFunction() {
+            alert("chicken butt!1!1 hehe.");
         }
     </script>
 </body>
