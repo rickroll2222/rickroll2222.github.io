@@ -1,10 +1,17 @@
 {
-    "theme_color": "#f69435",
-    "background_color": "#f69435",
-    "display": "fullscreen",
-    "scope": "/",
-    "start_url": "/https://rickroll2222.github.io/",
-    "name": "rickroll2222 websitw",
-    "short_name": "rickroll2222",
-    "icons": []
-}
+    "name": "RickRoll2222",
+    "short_name": "RickRoll",
+    "description": "a website",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1F51FF",
+    "icons": [
+      {
+        "src": "icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
+  
