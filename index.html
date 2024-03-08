@@ -75,6 +75,7 @@
         <button onclick="startEditing()">Start Editing</button>
         <button onclick="stopEditing()">Stop Editing</button>
         <button onclick="openCloakedRR22()">Cloaked RR22</button>
+        <button onclick="v86()">V86</button>
         <button onclick="myFunction()">Guess What?</button>
     </center>
 
@@ -100,6 +101,17 @@
         function openCloakedRR22() {
             var win = window.open();
             var url = "https://rickroll2222.github.io";
+            var iframe = win.document.createElement('iframe');
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+
+        }
+                    function v86() {
+            var win = window.open();
+            var url = "https://copy.sh/v86";
             var iframe = win.document.createElement('iframe');
             iframe.style.width = "100%";
             iframe.style.height = "100%";
