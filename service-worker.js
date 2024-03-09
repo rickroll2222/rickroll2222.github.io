@@ -5,6 +5,9 @@ const STATIC_ASSETS = [
     '/vanitas-no-carte-anime.gif',
     '/games/index.html',
     '/rickroll2222Google.html',
+    '/games/mario64/sm64.us.f3dex2e.wasm',
+    '/games/mario64/sm64.us.f3dex2e.js',
+    '/games/mario64/index.html',
     // Add more paths for other static assets you want to cache here
 ];
 
