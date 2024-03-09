@@ -1,5 +1,5 @@
 const CACHE_NAME = 'rickroll2222-cache-v1';
-const urlsToCache = [
+const STATIC_ASSETS = [
     '/',
     '/index.html',
     '/vanitas-no-carte-anime.gif',
@@ -8,47 +8,17 @@ const urlsToCache = [
     // Add more paths for other static assets you want to cache here
 ];
 
-self.addEventListener('install', function(event) {
-    // Perform the install steps
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(function(cache) {
-                console.log('Opened cache');
-                return cache.addAll(urlsToCache);
-            })
-    );
+self.addEventListener('install', async (event) => {
+    console.log("install event");
+    const cache = await caches.open(CACHE_NAME);
+    await cache.addAll(STATIC_ASSETS);
 });
 
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request)
-            .then(function(response) {
-                // Cache hit - return response
-                if (response) {
-                    return response;
-                }
-
-                // Clone the request
-                let fetchRequest = event.request.clone();
-
-                return fetch(fetchRequest)
-                    .then(function(response) {
-                        // Check if we received a valid response
-                        if (!response || response.status !== 200 || response.type !== 'basic') {
-                            return response;
-                        }
-
-                        // Clone the response
-                        let responseToCache = response.clone();
-
-                        caches.open(CACHE_NAME)
-                            .then(function(cache) {
-                                cache.put(event.request, responseToCache);
-                            });
-
-                        return response;
-                    }
-                );
-            })
-    );
+self.addEventListener('fetch', async (event) => {
+    console.log("fetch event");
+    const response = await caches.match(event.request);
+    if (response) {
+        return response;
+    }
+    return fetch(event.request);
 });
