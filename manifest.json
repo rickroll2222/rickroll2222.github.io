@@ -8,9 +8,9 @@
     "theme_color": "#1F51FF",
     "icons": [
       {
-        "src": "icon.png",
+        "src": "vanitas-no-carte-anime.gif",
         "sizes": "192x192",
-        "type": "image/png"
+        "type": "image/gif"
       }
     ]
   }
