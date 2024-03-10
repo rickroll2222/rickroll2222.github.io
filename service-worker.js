@@ -8,7 +8,7 @@ const STATIC_ASSETS = [
     '/games/mario64/sm64.us.f3dex2e.wasm',
     '/games/mario64/sm64.us.f3dex2e.js',
     '/games/mario64/index.html',
-    '/games/paperminecraft.html',
+    '/games/Paper Minecraft v11.html',
     
     // Add more paths for other static assets you want to cache here
 ];
