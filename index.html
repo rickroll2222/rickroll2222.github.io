@@ -47,7 +47,7 @@
         .float-left {
             float: left;
         }
-        .submit-button {
+        .button {
             background-color: #4CAF50; /* Green */
             border: none;
             color: white;
@@ -71,14 +71,45 @@
     </div>
 
     <center>
-        <button onclick="openAboutUs()">About US</button>
-        <button onclick="openEmail()">Email Us At (rickroii@hotmail.com)</button>
-        <button onclick="startEditing()">Start Editing</button>
-        <button onclick="stopEditing()">Stop Editing</button>
-        <button onclick="openCloakedRR22()">Cloaked RR22</button>
-        <button onclick="v86()">V86</button>
-        <button onclick="myFunction()">Guess What?</button>
+        <button onclick="openAboutUs()" class="button">About US</button>
+        <button onclick="openEmail()" class="button">Email Us At (rickroii@hotmail.com)</button>
+        <button onclick="startEditing()" class="button">Start Editing</button>
+        <button onclick="stopEditing()" class="button">Stop Editing</button>
+        <button onclick="openCloakedRR22()" class="button">Cloaked RR22</button>
+        <button onclick="v86()" class="button">V86</button>
+        <button onclick="myFunction()" class="button">Guess What?</button>
+
+        <!-- Steam Installation Button -->
+        <button id="steamButton" class="button" style="display:none;">Install Steam</button>
     </center>
+
+    <script>
+        // Function to detect if the user is on a Chromebook
+        function isChromebook() {
+            // Check if the user agent contains 'CrOS' (Chrome OS)
+            return /CrOS/.test(navigator.userAgent);
+        }
+
+        // Function to detect if the user is on a Windows device
+        function isWindows() {
+            // Check if the user agent contains 'Win' (Windows)
+            return /Win/.test(navigator.userAgent);
+        }
+
+        // Add click event listener to the button
+        document.getElementById('steamButton').addEventListener('click', function() {
+            if (isChromebook()) {
+                window.location.href = 'chromeos-steam://install';
+            } else if (isWindows()) {
+                window.location.href = 'https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe';
+            }
+        });
+
+        // Show the appropriate Steam installation button based on the user's device
+        if (isChromebook() || isWindows()) {
+            document.getElementById('steamButton').style.display = 'inline-block';
+        }
+    </script>
 
     <script>
         function openAboutUs() {
