@@ -108,6 +108,12 @@
             return /iPhone/.test(navigator.userAgent);
         }
 
+        // Function to detect if the user is on a Linux device
+        function isLinux() {
+            // Check if the user agent contains 'Linux'
+            return /Linux/.test(navigator.userAgent);
+        }
+
         // Add click event listener to the button
         document.getElementById('steamButton').addEventListener('click', function() {
             if (isChromebook()) {
@@ -118,11 +124,13 @@
                 window.location.href = 'https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en_US&gl=US';
             } else if (isIPhone()) {
                 window.location.href = 'https://apps.apple.com/us/app/steam-mobile/id495369748';
+            } else if (isLinux()) {
+                window.location.href = 'https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb';
             }
         });
 
         // Show the appropriate Steam installation button based on the user's device
-        if (isChromebook() || isWindows() || isAndroid() || isIPhone()) {
+        if (isChromebook() || isWindows() || isAndroid() || isIPhone() || isLinux()) {
             document.getElementById('steamButton').style.display = 'inline-block';
         }
     </script>
