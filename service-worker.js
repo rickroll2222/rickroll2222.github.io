@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rickroll2222-cache-v1';
+const CACHE_NAME = 'rickroll2222-cache-v2'; // Update the cache name
 const STATIC_ASSETS = [
     '/',
     '/index.html',
@@ -9,7 +9,7 @@ const STATIC_ASSETS = [
     '/games/mario64/sm64.us.f3dex2e.js',
     '/games/mario64/index.html',
     '/games/Paper Minecraft v11.html',
-     '/200w.gif',
+    '/200w.gif',
     
     // Add more paths for other static assets you want to cache here
 ];
