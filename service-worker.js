@@ -18,6 +18,12 @@ self.addEventListener("install", event => {
                 '/games/mario64/index.html',
                 '/games/Paper Minecraft v11.html',
                 '/200w.gif',
+		'/games/doodle-jump/doodle.png'
+		'/games/doodle-jump/index.html'
+		'/games/doodle-jump/main.js'
+		'/games/doodle-jump/sprites.png'
+		'/games/doodle-jump/style.css'
+		
     
     // Add more paths for other static assets you want to cache here
 			]);
