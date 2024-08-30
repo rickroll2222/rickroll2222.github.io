@@ -23,8 +23,29 @@ self.addEventListener("install", event => {
 		'/games/doodle-jump/main.js'
 		'/games/doodle-jump/sprites.png'
 		'/games/doodle-jump/style.css'
-		
-    
+		'/Slope-Game/Build/slope_data.unityweb'
+		'/Slope-Game/Build/slope_framework.unityweb'
+		'/Slope-Game/Build/slope_memory.unityweb'
+		'/Slope-Game/Build/slope_wasmcode.unityweb'
+		'/Slope-Game/Build/slope_wasmframework.unityweb'
+		'/Slope-Game/Build/slope.json'
+		'/Slope-Game/TemplateData/progressEmpty.Dark.png'
+		'/Slope-Game/TemplateData/progressFull.Dark.png'
+		'/Slope-Game/TemplateData/progressLogo.Dark.png'
+		'/Slope-Game/TemplateData/style.css'
+		'/Slope-Game/TemplateData/unityloader41.js'
+		'/Slope-Game/TemplateData/UnityProgress.js'
+		'/Slope-Game/index.html'
+
+
+
+
+				
+
+]
+
+
+				
     // Add more paths for other static assets you want to cache here
 			]);
 		})
