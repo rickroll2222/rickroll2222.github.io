@@ -36,6 +36,19 @@ self.addEventListener("install", event => {
 		'/Slope-Game/TemplateData/unityloader41.js'
 		'/Slope-Game/TemplateData/UnityProgress.js'
 		'/Slope-Game/index.html'
+		'/games/baldis-basics/TemplateData/progressEmpty.Dark.png'
+		'/games/baldis-basics/TemplateData/progressFull.Dark.png'
+		'/games/baldis-basics/TemplateData/progressLogo.Dark.png'
+		'/games/baldis-basics/TemplateData/style.css'
+		'/games/baldis-basics/TemplateData/UnityProgress.js'
+		'/games/baldis-basics/unity/baldi.data.unityweb'
+		'/games/baldis-basics/unity/baldi.wasm.code.unityweb'
+		'/games/baldis-basics/unity/baldi.wasm.framework.unityweb'
+		'/games/baldis-basics/baldi.js'
+		'/games/baldis-basics/baldi.json'
+		'/games/baldis-basics/firebase-app.js'
+		'/games/baldis-basics/index.html'
+		'/games/baldis-basics/splash.png'
 
 
 
