@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "tunnel_rush_v9",
+"productVersion": "0.1",
+"dataUrl": "tunnel_rush_v9.data.unityweb",
+"wasmCodeUrl": "tunnel_rush_v9.wasm.code.unityweb",
+"wasmFrameworkUrl": "tunnel_rush_v9.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.24f1"
+}
