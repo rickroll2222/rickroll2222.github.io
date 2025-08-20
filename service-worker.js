@@ -49,6 +49,7 @@ self.addEventListener("install", event => {
 		'/games/baldis-basics/firebase-app.js'
 		'/games/baldis-basics/index.html'
 		'/games/baldis-basics/splash.png'
+		'/games/minecraft.html'
 
 
 
