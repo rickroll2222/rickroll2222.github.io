@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "hyper-tunnel",
+"productVersion": "0.1",
+"dataUrl": "hyper-tunnel-v25111801.data.unityweb",
+"wasmCodeUrl": "hyper-tunnel-v25111801.wasm.code.unityweb",
+"wasmFrameworkUrl": "hyper-tunnel-v25111801.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.24f1"
+}
