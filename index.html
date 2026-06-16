@@ -5,7 +5,7 @@
 	<title>RickRoll2222</title>
 	<link rel="canonical" href="https://simplepwa.com" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+	<script src="/background.js"></script>
 	<!-- Icons and Colors -->
 	<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
@@ -41,81 +41,27 @@
     </div>
 
     <center>
-        <button onclick="openEmail()" class="button">Email Us At (rickroii@hotmail.com)</button>
-        <button onclick="startEditing()" class="button">Start Editing</button>
-        <button onclick="stopEditing()" class="button">Stop Editing</button>
-        <button onclick="openCloakedRR22()" class="button">Cloaked RR22</button>
-        <button onclick="myFunction()" class="button">Guess What?</button>
-        <button onclick="credit()" class="button">credit</button>
-        <button onclick="Games()" class="button">games</button>
-      
+        <button id="removebutton" onclick="openEmail()" class="button">Email Us At (rickroii@hotmail.com)</button>
+        <button id="removebutton" onclick="startEditing()" class="button">Start Editing</button>
+        <button id="removebutton" onclick="stopEditing()" class="button">Stop Editing</button>
+        <button id="removebutton" onclick="openCloakedRR22()" class="button">Cloaked RR22</button>
+        <button id="removebutton" onclick="myFunction()" class="button">Guess What?</button>
+        <button id="removebutton" onclick="credit()" class="button">credit</button>
+        <button id="removebutton" onclick="Games()" class="button">games</button>
 
-        <!-- Steam Installation Button -->
-        <button id="steamButton" class="button" style="display:none;">Install Steam</button>
+
+        
     </center>
 
-    <script>
-        // Function to detect if the user is on a Chromebook
-        function isChromebook() {
-            // Check if the user agent contains 'CrOS' (Chrome OS)
-            return /CrOS/.test(navigator.userAgent);
-        }
 
-        // Function to detect if the user is on a Windows device
-        function isWindows() {
-            // Check if the user agent contains 'Win' (Windows)
-            return /Win/.test(navigator.userAgent);
-        }
-
-        // Function to detect if the user is on an Android device
-        function isAndroid() {
-            // Check if the user agent contains 'Android'
-            return /Android/.test(navigator.userAgent);
-        }
-
-        // Function to detect if the user is on an iPhone (iOS) device
-        function isIPhone() {
-            // Check if the user agent contains 'iPhone'
-            return /iPhone/.test(navigator.userAgent);
-        }
-
-        // Function to detect if the user is on a Linux device
-        function isLinux() {
-            // Check if the user agent contains 'Linux'
-            return /Linux/.test(navigator.userAgent);
-        }
-
-        // Add click event listener to the button
-        document.getElementById('steamButton').addEventListener('click', function() {
-            if (isChromebook()) {
-                window.location.href = 'chromeos-steam://install';
-            } else if (isWindows()) {
-                window.location.href = 'https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe';
-            } else if (isAndroid()) {
-                window.location.href = 'https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en_US&gl=US';
-            } else if (isIPhone()) {
-                window.location.href = 'https://apps.apple.com/us/app/steam-mobile/id495369748';
-            } else if (isLinux()) {
-                window.location.href = 'https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb';
-            }
-        });
-
-        // Show the appropriate Steam installation button based on the user's device
-        if (isChromebook() || isWindows() || isAndroid() || isIPhone() || isLinux()) {
-            document.getElementById('steamButton').style.display = 'inline-block';
-        }
-    </script>
 
     <script>
  
             function openGames() {
-            window.open("https://rickroll2222.github.io/games/index.html", "_blank");
+            window.open("/games/index.html", "_blank");
         }
              function Games() {
-            window.open("https://rickroll2222.github.io/test.html", "_blank");
-        }
-        function google() {
-            window.open("https://rickroll2222.github.io/rickroll2222Google.html", "_blank");
+            window.open("/test.html", "_blank");
         }
 
         function openEmail() {
@@ -131,6 +77,7 @@
             document.body.contentEditable = false;
             document.designMode = 'off';
         }
+
 
         function openCloakedRR22() {
             var win = window.open();
@@ -152,6 +99,24 @@
         function credit() {
             window.open("credit.html",
             "", "width=300, height=300");        }
+    </script>
+        <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    
+    const buttons = document.querySelectorAll('.button');
+
+    buttons.forEach(button => {
+        const btnId = button.id;
+        
+        
+        if (params.has(btnId)) {
+            button.classList.add('hidden');
+        }
+    });
+
+
+});
     </script>
 </body>
 </html>
