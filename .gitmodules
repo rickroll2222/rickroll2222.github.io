@@ -10,3 +10,6 @@
 [submodule "SonicManiaWeb"]
 	path = SonicManiaWeb
 	url = https://github.com/rickroll2222/SonicManiaWeb
+[submodule "stardew-wasm"]
+	path = stardew-wasm
+	url = https://github.com/rickroll2222/stardew-wasm
