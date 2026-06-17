@@ -10,6 +10,7 @@ self.addEventListener("install", event => {
 
                 '/',
                 '/index.html',
+                'https://files.catbox.moe/adef69.webp',
                 '/vanitas-no-carte-anime.gif',
                 '/games/index.html',
                 '/rickroll2222Google.html',
