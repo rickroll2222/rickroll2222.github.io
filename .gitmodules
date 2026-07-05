@@ -1,9 +1,3 @@
-[submodule "roblox"]
-	path = roblox
-	url = https://github.com/rickroll2222/roblox
-[submodule "stardew-wasm"]
-	path = stardew-wasm
-	url = https://github.com/rickroll2222/stardew-wasm
 [submodule "fnaf"]
 	path = fnaf
 	url = https://github.com/rickroll2222/fnaf
