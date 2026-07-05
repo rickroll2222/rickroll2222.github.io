@@ -1,12 +1,6 @@
 [submodule "roblox"]
 	path = roblox
 	url = https://github.com/rickroll2222/roblox
-[submodule "MCPEweb"]
-	path = MCPEweb
-	url = https://github.com/rickroll2222/MCPEweb
-[submodule "Slope-Game"]
-	path = Slope-Game
-	url = https://github.com/rickroll2222/Slope-Game
 [submodule "stardew-wasm"]
 	path = stardew-wasm
 	url = https://github.com/rickroll2222/stardew-wasm

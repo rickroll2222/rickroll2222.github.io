@@ -1541,7 +1541,7 @@ self.addEventListener("install", event => {
 
 		/* games/amongus Build6 (updated build) */
 		'/games/amongus/Build/AmongUSWebPortByTSProllyFinalBuild6.data.unityweb',
-		'/games/amongus/Build/AmongUSWebPortByTSProllyFinalBuild6.json',
+		'/games/amongus/amongus/AmongUSWebPortByTSProllyFinalBuild6.json',
 		'/games/amongus/Build/AmongUSWebPortByTSProllyFinalBuild6.wasm.code.unityweb',
 		'/games/amongus/Build/AmongUSWebPortByTSProllyFinalBuild6.wasm.framework.unityweb'
 
