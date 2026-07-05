@@ -207,7 +207,7 @@
   return urls;
 }
 
-const dc = await autoChunks("Build/Cuphead.data");
+const dc = await autoChunks("Cuphead/Cuphead.data");
 const du = await mf(dc);
 const wu = "Build/Cuphead.wasm";
  sc = document.createElement("script");
@@ -215,7 +215,7 @@ const wu = "Build/Cuphead.wasm";
         sc.onload = () => {
           createUnityInstance(cv, {
             dataUrl: du,
-            frameworkUrl: "Build/Cuphead.framework.js",
+            frameworkUrl: "Cuphead/Cuphead.framework.js",
             codeUrl: wu,
             streamingAssetsUrl: "StreamingAssets",
             companyName: "crackers",
