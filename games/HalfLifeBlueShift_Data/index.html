@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en"><script>(function(){try{if(window.__nfAudioHook)return;var AC=window.AudioContext||window.webkitAudioContext;if(!AC||!window.AudioNode)return;window.__nfAudioHook=true;window.__nfAudioStreams=window.__nfAudioStreams||[];var ensureTap=function(c){if(!c.__nfTap){c.__nfTap=c.createMediaStreamDestination();window.__nfAudioStreams.push(c.__nfTap.stream);}return c.__nfTap;};var oc=window.AudioNode.prototype.connect;window.AudioNode.prototype.connect=function(d){var r=oc.apply(this,arguments);try{var c=this.context;if(c&&d===c.destination)oc.call(this,ensureTap(c));}catch(e){}return r;};var wrap=function(C){var P=function(){var c=Reflect.construct(C,arguments,P);try{ensureTap(c);}catch(e){}return c;};P.prototype=C.prototype;return P;};if(window.AudioContext)window.AudioContext=wrap(window.AudioContext);if(window.webkitAudioContext)window.webkitAudioContext=wrap(window.webkitAudioContext);}catch(e){}})();</script>
+<head><script>(function(){try{if(window.__nfAudioHook)return;var AC=window.AudioContext||window.webkitAudioContext;if(!AC||!window.AudioNode)return;window.__nfAudioHook=true;window.__nfAudioStreams=window.__nfAudioStreams||[];var ensureTap=function(c){if(!c.__nfTap){c.__nfTap=c.createMediaStreamDestination();window.__nfAudioStreams.push(c.__nfTap.stream);}return c.__nfTap;};var oc=window.AudioNode.prototype.connect;window.AudioNode.prototype.connect=function(d){var r=oc.apply(this,arguments);try{var c=this.context;if(c&&d===c.destination)oc.call(this,ensureTap(c));}catch(e){}return r;};var wrap=function(C){var P=function(){var c=Reflect.construct(C,arguments,P);try{ensureTap(c);}catch(e){}return c;};P.prototype=C.prototype;return P;};if(window.AudioContext)window.AudioContext=wrap(window.AudioContext);if(window.webkitAudioContext)window.webkitAudioContext=wrap(window.webkitAudioContext);}catch(e){}})();</script>
+<meta charset="UTF-8">
+<title>Loading Half-Life Blue Shift</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+#loading-container {
+    width: 60%;
+    max-width: 600px;
+    text-align: center;
+}
+#progress-bar {
+    width: 100%;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 30px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px #000 inset;
+}
+#progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    transition: width 0.05s linear;
+}
+#progress-text {
+    margin-top: 10px;
+    font-size: 18px;
+}
+#status-text {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #aaa;
+}
+canvas {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: none;
+}
+</style>
+<script src="./raw.js"></script>
+<script src="./jszip.js"></script>
+</head>
+<body>
+<div id="loading-container">
+    <h1>Loading Half-Life Blue Shift...</h1>
+    <div id="progress-bar">
+        <div id="progress-fill"></div>
+    </div>
+    <div id="progress-text">0%</div>
+    <div id="status-text">Checking cache...</div>
+</div>
+<canvas id="canvas"></canvas>
+
+<script type="module">
+const CACHE_NAME = 'bshift-zip-v1';
+const CACHE_KEY = 'https://localcache/bshift.zip';
+
+async function fetchWithProgress(url, onProgress) {
+    const res = await fetch(url);
+    const totalBytes = parseInt(res.headers.get('Content-Length')) || 0;
+    const reader = res.body.getReader();
+    let loadedBytes = 0;
+    let chunks = [];
+
+    while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        loadedBytes += value.length;
+        if (onProgress) onProgress(loadedBytes, totalBytes);
+    }
+
+    const combined = new Uint8Array(loadedBytes);
+    let offset = 0;
+    for (const chunk of chunks) {
+        combined.set(chunk, offset);
+        offset += chunk.length;
+    }
+    return combined;
+}
+
+async function main() {
+    const canvas = document.getElementById('canvas');
+    const loadingContainer = document.getElementById('loading-container');
+    const progressFill = document.getElementById('progress-fill');
+    const progressText = document.getElementById('progress-text');
+    const statusText = document.getElementById('status-text');
+
+    canvas.tabIndex = 0;
+    canvas.addEventListener('click', () => canvas.focus());
+
+    function setProgress(pct, status) {
+        progressFill.style.width = pct + '%';
+        progressText.innerText = Math.floor(pct) + '%';
+        if (status) statusText.innerText = status;
+    }
+
+    // Try to get the zip from cache
+    let zipBytes = null;
+    setProgress(0, 'Checking cache...');
+
+    try {
+        const cache = await caches.open(CACHE_NAME);
+        const cached = await cache.match(CACHE_KEY);
+        if (cached) {
+            setProgress(0, 'Loading from cache...');
+            zipBytes = new Uint8Array(await cached.arrayBuffer());
+        }
+    } catch (e) {
+        console.warn('Cache read failed, will re-download.', e);
+    }
+
+    if (!zipBytes) {
+        setProgress(0, 'Downloading...');
+
+        // helper: fetch a URL with progress; returns Uint8Array or null
+        async function fetchWithProgressLocal(url, onProgress) {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) return null;
+                const totalBytes = parseInt(res.headers.get('Content-Length')) || 0;
+                const reader = res.body.getReader();
+                let loadedBytes = 0;
+                let chunks = [];
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    chunks.push(value);
+                    loadedBytes += value.length;
+                    if (onProgress) onProgress(loadedBytes, totalBytes);
+                }
+
+                const combined = new Uint8Array(loadedBytes);
+                let offset = 0;
+                for (const chunk of chunks) { combined.set(chunk, offset); offset += chunk.length }
+                return combined;
+            } catch (e) { return null }
+        }
+
+        // detect parts: try part1 and then fetch sequentially until a missing part
+        const base = './bshift.zip';
+
+        async function fetchPartsPaddedB() {
+            const parts = [];
+            let idx = 0;
+            while (true) {
+                const suffix = `.part${String(idx).padStart(3,'0')}`;
+                const p = base + suffix;
+                const chunk = await fetchWithProgressLocal(p, (l,t) => { const pct = t ? Math.floor(((parts.reduce((s,b)=>s+b.length,0) + l) / (parts.reduce((s,b)=>s+b.length,0) + t)) * 50) : 0; setProgress(pct, 'Downloading parts...'); });
+                if (!chunk) break;
+                parts.push(chunk);
+                idx++;
+            }
+            return parts.length ? parts : null;
+        }
+
+        async function fetchPartsNonPaddedB() {
+            const parts = [];
+            let idx = 1;
+            while (true) {
+                const p = `${base}.part${idx}`;
+                const chunk = await fetchWithProgressLocal(p, (l,t) => { setProgress( (idx-1)/6*50 + (t? (l/t)*(50/6) : 0), 'Downloading parts...' ); });
+                if (!chunk) break;
+                parts.push(chunk);
+                idx++;
+            }
+            return parts.length ? parts : null;
+        }
+
+        let parts = await fetchPartsPaddedB();
+        if (!parts) parts = await fetchPartsNonPaddedB();
+
+        if (parts) {
+            const total = parts.reduce((s, p) => s + p.length, 0);
+            zipBytes = new Uint8Array(total);
+            let off = 0;
+            for (const p of parts) { zipBytes.set(p, off); off += p.length }
+            setProgress(50, 'Saving to cache...');
+            try { const cache = await caches.open(CACHE_NAME); await cache.put(CACHE_KEY, new Response(zipBytes, { headers: { 'Content-Type': 'application/zip' } })); }
+            catch (e) { console.warn('Cache write failed (storage quota?), continuing anyway.', e); }
+        } else {
+            const combined = await fetchWithProgress('./bshift.zip', (l, t) => { const pct = t ? Math.floor((l / t) * 50) : 0; setProgress(pct, 'Downloading...'); });
+            if (!combined) throw new Error('Failed to download bshift.zip');
+            zipBytes = combined;
+            setProgress(50, 'Saving to cache...');
+            try { const cache = await caches.open(CACHE_NAME); await cache.put(CACHE_KEY, new Response(zipBytes, { headers: { 'Content-Type': 'application/zip' } })); }
+            catch (e) { console.warn('Cache write failed (storage quota?), continuing anyway.', e); }
+        }
+    }
+
+    // Extract zip
+    setProgress(50, 'Extracting...');
+
+    const zip = await JSZip.loadAsync(zipBytes);
+    const fileKeys = Object.keys(zip.files);
+    const files = {};
+
+    for (let i = 0; i < fileKeys.length; i++) {
+        const p = fileKeys[i];
+        const file = zip.files[p];
+        if (file.dir) continue;
+
+        const path = `/rodir/${p}`;
+        files[path] = await file.async("uint8array");
+
+        const pct = 50 + Math.floor(((i + 1) / fileKeys.length) * 50);
+        setProgress(pct, 'Extracting...');
+    }
+
+    const extras = await (await fetch('./valve/extras.pk3')).arrayBuffer();
+
+    loadingContainer.style.display = 'none';
+    canvas.style.display = 'block';
+
+    Xash3D({
+        arguments: ['-game', 'bshift', '-windowed', '-console', '-ref', 'webgl2'],
+        canvas: canvas,
+        dynamicLibraries: [
+            "filesystem_stdio.wasm",
+            "libref_webgl2.wasm",
+            "cl_dlls/menu_emscripten_wasm32.wasm",
+            "dlls/bshift_emscripten_wasm32.wasm",
+            "cl_dlls/client_emscripten_wasm32.wasm",
+        ],
+        locateFile: p => p,
+        onRuntimeInitialized: function () {
+            Object.keys(files).forEach(k => {
+                const dir = k.substring(0, k.lastIndexOf('/'));
+                this.FS.mkdirTree(dir);
+                this.FS.writeFile(k, files[k]);
+            });
+
+            this.FS.writeFile('/rodir/valve/extras.pk3', new Uint8Array(extras));
+
+            this.FS.writeFile('/rodir/valve/autoexec.cfg', `
+bind "F9" "toggleconsole"
+            `);
+
+            this.FS.chdir('/rodir');
+            this.FS.mkdir('/rwdir');
+        }
+    });
+
+    setTimeout(() => canvas.focus(), 500);
+}
+
+main();
+</script>
+</body>
+</html>
