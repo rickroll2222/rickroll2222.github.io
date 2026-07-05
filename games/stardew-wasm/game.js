@@ -64,7 +64,7 @@ musicChoice.style.display = "none";
 const contentP = getTar("Content.tar", "game content", "Content.tar");
 const audioP = wantMusic ? getTar("ContentAudio.tar", "music", "ContentAudio.tar") : Promise.resolve(null);
 const runtimeP = (async () => {
-	const { dotnet } = await import("./_framework/dotnet.js");
+	const { dotnet } = await import("./framework/dotnet.js");
 	return dotnet
 		.withModuleConfig({ canvas })
 		.withEnvironmentVariable("MONO_SLEEP_ABORT_LIMIT", "99999")

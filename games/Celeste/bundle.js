@@ -1,4 +1,4 @@
-import { dotnet } from './_framework/dotnet.js';
+import { dotnet } from './framework/dotnet.js';
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -5142,7 +5142,7 @@ function IntroSplash() {
       encbuf = new Uint8Array(SIZE);
       await Promise.all([...chunkify(splits.entries(), Math.ceil(splits.length / 5))].map(async (chunk) => {
         for (let [idx, file] of chunk) {
-          let data = await fetch(`_framework/data/${file}`);
+          let data = await fetch(`framework/data/${file}`);
           let buf = new Uint8Array(await data.arrayBuffer());
           encbuf.set(buf, idx * CHUNKSIZE);
           this.progress += CHUNKSIZE / SIZE * 100;
@@ -5150,7 +5150,7 @@ function IntroSplash() {
       }));
     } else {
       encbuf = new Uint8Array(SIZE);
-      let data = await fetch("_framework/data.data");
+      let data = await fetch("framework/data.data");
       let cur = 0;
       for await (const chunk of data.body) {
         encbuf.set(chunk, cur);
