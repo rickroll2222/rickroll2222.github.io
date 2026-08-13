@@ -5121,7 +5121,7 @@ const OpfsExplorer = function () {
 		);
 	},
 	CONTENT_PARTS = 36,
-	CONTENT_BASE_PATH = "https://cdn.jsdelivr.net/gh/rickroll2222/games@main/terraria/Content.tar.part1",
+	CONTENT_BASE_PATH = "https://cdn.jsdelivr.net/gh/rickroll2222/games@main/terraria/Content.tar.part",
 	Progress = function () {
 		return (
 			(this.css = `
