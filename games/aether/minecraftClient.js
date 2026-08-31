@@ -196,9 +196,9 @@ export default class Launcher {
 			// --- LWJGL jars: download into VFS and include from there (NO /app hardcode) ---
 			// Set this to your actual server directory:
 
-			const lwjglVfs = "/app/assets/storage/webgl/aether/lwjgl-2.9.3.jar";
+			const lwjglVfs = "/app/games/aether/lwjgl-2.9.3.jar";
 			const lwjglUtilVfs =
-				"/app/assets/storage/webgl/aether/lwjgl_util-2.9.3.jar";
+				"/app/games/aether/lwjgl_util-2.9.3.jar";
 
 			this.#g("Downloading LWJGL jars...");
 			await downloadFileToCheerpJ(`lwjgl-2.9.3.jar`, lwjglVfs);
