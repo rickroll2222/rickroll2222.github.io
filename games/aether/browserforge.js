@@ -500,7 +500,7 @@ playBtn.addEventListener("click", async () => {
 
 		const customArgsInput = document.getElementById("custom-args");
 		let javaProps = [
-			"java.library.path=/app/assets/storage/webgl/aether/libraries/",
+			"java.library.path=/app/games/aether/libraries/",
 		];
 		let runArgs = [];
 
@@ -532,7 +532,7 @@ playBtn.addEventListener("click", async () => {
 		}
 
 		let libs = {
-			"libGL.so.1": "/app/assets/storage/webgl/aether/libraries/gl4es.wasm",
+			"libGL.so.1": "/app/games/aether/libraries/gl4es.wasm",
 		};
 
 		if (initStatus) initStatus.textContent = "Initializing CheerpJ...";
