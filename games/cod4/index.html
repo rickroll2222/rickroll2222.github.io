@@ -1,3 +1,4 @@
+<base href="https://cdn.jsdelivr.net/gh/rickroll2222/games@main/kisakcod/">
 <!doctype html>
 <html lang="en-us">
 
@@ -66,7 +67,7 @@
              */
             object-fit: fill;
 
-            cursor: none;
+            cursor: none !important;
 
             touch-action: none;
 
@@ -264,6 +265,23 @@
         }
 
         body.game-running #installer-panel {
+            display: none !important;
+        }
+
+        body.game-running,
+        body.game-running #canvas {
+            cursor: none !important;
+        }
+
+        body.game-running #fullscreen-button {
+            cursor: pointer !important;
+        }
+
+        body.game-running #game-console {
+            cursor: text !important;
+        }
+
+        body.game-running #version-tag {
             display: none !important;
         }
 
@@ -887,7 +905,7 @@
 
             inputInstalled = true;
 
-            canvas.style.cursor = "default";
+            canvas.style.cursor = "none";
 
             let mouseDown = false;
 
@@ -1086,14 +1104,11 @@
 
             function updateCursor() {
 
+                canvas.style.cursor = "none";
+
+
                 var wantLock =
                     getWantLock();
-
-
-                canvas.style.cursor =
-                    wantLock
-                        ? "none"
-                        : "default";
 
 
                 if (
@@ -4239,36 +4254,6 @@
            PLAY
            ============================================================ */
 
-        let gameScriptLoaded = false;
-
-
-        function loadGameScript() {
-
-            if (gameScriptLoaded)
-                return;
-
-
-            gameScriptLoaded = true;
-
-
-            const gameScript =
-                document
-                    .getElementById(
-                        "module-script-template"
-                    )
-                    .content
-                    .querySelector(
-                        "script"
-                    );
-
-
-            document.body.appendChild(
-                gameScript
-            );
-
-        }
-
-
         function playGame() {
 
             if (
@@ -4311,7 +4296,63 @@
             }
 
 
-            loadGameScript();
+            enforceHiddenCursor();
+
+        }
+
+
+        /* ============================================================
+           FORCE-HIDE SYSTEM CURSOR WHILE PLAYING
+
+           Belt-and-suspenders on top of the CSS "cursor: none" rule:
+           some browsers/engine code paths can quietly reset the
+           cursor back to visible, so we keep stamping it back to
+           "none" on every mouse movement while the game is running.
+           ============================================================ */
+
+        let cursorEnforcerInstalled = false;
+
+        function enforceHiddenCursor() {
+
+            if (cursorEnforcerInstalled)
+                return;
+
+            cursorEnforcerInstalled = true;
+
+            const hide = () => {
+
+                if (
+                    document.body.classList.contains(
+                        "game-running"
+                    )
+                ) {
+
+                    canvas.style.setProperty(
+                        "cursor",
+                        "none",
+                        "important"
+                    );
+
+                }
+
+            };
+
+            document.addEventListener(
+                "mousemove",
+                hide,
+                true
+            );
+
+            document.addEventListener(
+                "mouseenter",
+                hide,
+                true
+            );
+
+            setInterval(
+                hide,
+                250
+            );
 
         }
 
@@ -5140,6 +5181,26 @@
            ============================================================ */
 
         initializeInstaller();
+
+
+        /* ============================================================
+           LOAD KISAKCOD SCRIPT
+           ============================================================ */
+
+        const gameScript =
+            document
+                .getElementById(
+                    "module-script-template"
+                )
+                .content
+                .querySelector(
+                    "script"
+                );
+
+
+        document.body.appendChild(
+            gameScript
+        );
 
     </script>
 
