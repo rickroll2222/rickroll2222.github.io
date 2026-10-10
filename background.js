@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // List of alternate images
   const alternateImages = [
-    '/7d2a9fca264faa93561f72b5fc885fec.gif',
-    '/old.gif',
     'https://files.catbox.moe/adef69.webp'
   ];
 

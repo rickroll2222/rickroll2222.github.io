@@ -1,0 +1,294 @@
+[
+        {
+            "hosted": "mari0/index.html",
+            "name": "mari0"
+        },
+        {
+            "hosted": "Paper Minecraft v11.html",
+            "name": "Paper Minecraft"
+        },
+        {
+            "hosted": "brick-breaker.html",
+            "name": "Brick Breaker"
+        },
+        {
+            "hosted": "mario64/index.html",
+            "name": "Mario 64"
+        },
+        {
+            "hosted": "2048/2048/index.html",
+            "name": "2048"
+        },
+        {
+            "hosted": "2048m/index.html",
+            "name": "9007199254740992"
+        },
+        {
+            "hosted": "/SonicManiaWeb",
+            "name": "Sonic Mania"
+        },
+        {
+            "hosted": "worlds-hardest-game/index.html",
+            "name": "Worlds hardest game"
+        },
+        {
+            "hosted": "minecraft-classic",
+            "name": "Minecraft Classic"
+        },
+        {
+            "hosted": "doodle-jump",
+            "name": "Doodle Jump"
+        },
+        {
+            "hosted": "worlds-hardest-game-2/index.html",
+            "name": "Worlds hardest game 2"
+        },
+        {
+            "hosted": "retro-bowl",
+            "name": "Retro bowl"
+        },
+        {
+            "hosted": "subway-surfers-ny",
+            "name": "subway surfers"
+        },
+        {
+            "hosted": "smashkarts",
+            "name": "smash karts"
+        },
+        {
+            "hosted": "slope-game/",
+            "name": "Slope"
+        },
+        {
+            "hosted": "baldis-basics/",
+            "name": "baldis basics"
+        },
+        {
+            "hosted": "geometry jump",
+            "name": "geometry jump"
+        },
+        {
+            "hosted": "geometry dash lite",
+            "name": "geometry dash lite"
+        },
+        {
+            "hosted": "geometry dash bloodbath",
+            "name": "geometry dash bloodbath"
+        },
+        {
+            "hosted": "SnowRider",
+            "name": "Snow Rider 3D"
+        },
+        {
+            "hosted": "tunnelrush",
+            "name": "Tunnel Rush"
+        },
+        {
+            "hosted": "google-snake",
+            "name": "Google Snake"
+        },
+        {
+            "hosted": "20-Crossy-Road-Game",
+            "name": "Crossy Road"
+        },
+        {
+            "hosted": "Rocket-League",
+            "name": "Rocket League"
+        },
+        {
+            "hosted": "drivemad",
+            "name": "Drive Mad"
+        },
+        {
+            "hosted": "spacewave",
+            "name": "Space Wave"
+        },
+        {
+            "hosted": "minecraft.html",
+            "name": "Minecraft"
+        },
+        {
+            "hosted": "hypertunnel",
+            "name": "hyper tunnel"
+        },
+        {
+            "hosted": "/MCPEweb",
+            "name": "minecraft PE 0.6.1"
+        },
+        {
+            "hosted": "mcpe010",
+            "name": "minecraft PE 0.1.0"
+        },
+        {
+            "hosted": "https://nowgg.fun/apps/a/19900/b.html",
+            "name": "roblox"
+        },
+        {
+            "hosted": "https://nowgg.fun/apps/aptoide/5874/aptoide.html?deep_link=aptoidesearch://com.epicgames.fortnite",
+            "name": "fortnite"
+        },
+        {
+            "hosted": "ST1",
+            "name": "slendytubbies 1"
+        },
+        {
+            "hosted": "slendytubbies2",
+            "name": "slendytubbies 2"
+        },
+        {
+            "hosted": "slendytubbies3d",
+            "name": "slendytubbies 2d"
+        },
+        {
+            "hosted": "HalfLife_Data",
+            "name": "half life"
+        },
+        {
+            "hosted": "HalfLifeBlueShift_Data",
+            "name": "half life Blue Shift"
+        },
+        {
+            "hosted": "HalfLifeOpposingForce_Data",
+            "name": "half life Opposing Force"
+        },
+        {
+            "hosted": "HalfLife2_Data",
+            "name": "half life 2"
+        },
+        {
+            "hosted": "/stardew-wasm",
+            "name": "stardew valley"
+        },
+        {
+            "hosted": "/roblox",
+            "name": "roblox natural disaster survival"
+        },
+        {
+            "hosted": "pvz",
+            "name": "plants vs Zombie"
+        },
+        {
+            "hosted": "/fnaf/1",
+            "name": "fnaf 1"
+        },
+        {
+            "hosted": "/fnaf/2",
+            "name": "fnaf 2"
+        },
+        {
+            "hosted": "/fnaf/3",
+            "name": "fnaf 3"
+        },
+        {
+            "hosted": "/fnaf/4",
+            "name": "fnaf 4"
+        },
+        {
+            "hosted": "/fnaf/w",
+            "name": "fnaf world"
+        },
+        {
+            "hosted": "/fnaf/sl",
+            "name": "fnaf sister location"
+        },
+        {
+            "hosted": "/fnaf/ps",
+            "name": "fnaf pizzeria simulator"
+        },
+        {
+            "hosted": "/fnaf/ucn",
+            "name": "fnaf ultimate custom night"
+        },
+        {
+            "hosted": "amongus",
+            "name": "Among Us"
+        },
+        {
+            "hosted": "BirthdayBashWeb",
+            "name": "Baldi's Basics Birthday Bash"
+        },
+        {
+            "hosted": "baldi-remaster",
+            "name": "Baldi's Basics Remaster"
+        },
+        {
+            "hosted": "CupheadWeb",
+            "name": "Cuphead"
+        },
+        {
+            "hosted": "Untitled-Goose-Game",
+            "name": "Untitled Goose Game"
+        },
+        {
+            "hosted": "Celeste",
+            "name": "Celeste"
+        },
+        {
+            "hosted": "celestepico8",
+            "name": "Celeste Pico 8 version"
+        },
+        {
+            "hosted": "celeste3d",
+            "name": "Celeste 3D"
+        },
+        {
+            "hosted": "Sonic-CD",
+            "name": "Sonic CD"
+        },
+        {
+            "hosted": "terraria",
+            "name": "Terraria"
+        },
+        {
+            "hosted": "gta3",
+            "name": "GTA 3"
+        },
+        {
+            "hosted": "ac",
+            "name": "animal crossing"
+        },
+        {
+            "hosted": "Eaglercraft-26.1.2.html",
+            "name": "Minecraft 26.1.2"
+        },
+        {
+            "hosted": "Portal_Data",
+            "name": "Portal"
+        },
+        {
+            "hosted": "flying-gorilla",
+            "name": "Flying Gorilla"
+        },
+        {
+            "hosted": "aether/",
+            "name": "Minecraft Aether"
+        },
+        {
+            "hosted": "PlagueInc",
+            "name": "Plague Inc"
+        },
+        {
+            "hosted": "granny",
+            "name": "Granny"
+        },
+        {
+            "hosted": "granny-2",
+            "name": "Granny 2"
+        },
+        {
+            "hosted": "granny3",
+            "name": "Granny 3"
+        },
+        {
+            "hosted": "smb-remastered",
+            "name": "Super Mario Bros remastered"
+        },
+        {
+            "hosted": "smb",
+            "name": "Super Mario Bros"
+        },
+        {
+            "hosted": "cod4",
+            "name": "Call of Duty 4"
+        }
+]
