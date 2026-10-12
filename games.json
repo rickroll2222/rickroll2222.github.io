@@ -68,6 +68,10 @@
             "name": "geometry jump"
         },
         {
+            "hosted":"gd/",
+            "name": "geometry dash"
+        },
+        {
             "hosted": "geometry dash lite",
             "name": "geometry dash lite"
         },
