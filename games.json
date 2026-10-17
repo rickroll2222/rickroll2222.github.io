@@ -294,5 +294,9 @@
         {
             "hosted": "cod4",
             "name": "Call of Duty 4"
+        },
+        {
+            "hosted": "sobosuba",
+            "name": "sobosuba"
         }
 ]
