@@ -280,6 +280,10 @@
             "name": "Terraria"
         },
         {
+            "hosted": "tf2",
+            "name": "Team Fortress 2"
+        },
+        {
             "hosted": "tunnelrush",
             "name": "Tunnel Rush"
         },
