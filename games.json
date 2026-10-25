@@ -140,10 +140,6 @@
             "name": "half life"
         },
         {
-            "hosted": "HalfLife2_Data",
-            "name": "half life 2"
-        },
-        {
             "hosted": "HalfLifeBlueShift_Data",
             "name": "half life Blue Shift"
         },
@@ -163,10 +159,6 @@
             "hosted": "mario64/index.html",
             "name": "Mario 64"
         },
-        {
-            "hosted": "minecraft.html",
-            "name": "Minecraft"
-        },
                 {
             "hosted": "mcsm",
             "name": "Minecraft Story Mode"
@@ -184,15 +176,11 @@
             "name": "Minecraft Classic"
         },
         {
-            "hosted": "mcpe010",
-            "name": "minecraft PE 0.1.0"
-        },
-        {
             "hosted": "/MCPEweb",
             "name": "minecraft PE 0.6.1"
         },
         {
-            "hosted": "Paper Minecraft v11.html",
+            "hosted": "pmc",
             "name": "Paper Minecraft"
         },
         {
@@ -202,10 +190,6 @@
         {
             "hosted": "pvz",
             "name": "plants vs Zombie"
-        },
-        {
-            "hosted": "Portal_Data",
-            "name": "Portal"
         },
         {
             "hosted": "retro-bowl",
